@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animated CSS Buttons</title>
+  <style>
+    body {
+      background-color: #1e1e2f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      gap: 20px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 16px;
+      color: white;
+      background: #6200ea;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px #6200ea;
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 5px #3700b3;
+    }
+
+    /* Glow Button */
+    .btn-glow {
+      background: #ff4081;
+      box-shadow: 0 0 10px #ff4081;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #ff4081;
+      }
+      to {
+        box-shadow: 0 0 20px #ff80ab, 0 0 30px #ff80ab;
+      }
+    }
+
+    /* Border Slide Button */
+    .btn-border-slide {
+      position: relative;
+      background: transparent;
+      color: #03dac6;
+      border: 2px solid #03dac6;
+      overflow: hidden;
+    }
+
+    .btn-border-slide::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: #03dac6;
+      transition: left 0.4s;
+      z-index: 0;
+    }
+
+    .btn-border-slide:hover::before {
+      left: 0;
+    }
+
+    .btn-border-slide span {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="btn">Basic Hover Button</button>
+
+  <button class="btn btn-glow">Glowing Button</button>
+
+  <button class="btn btn-border-slide"><span>Slide Border Button</span></button>
+
+</body>
+</html>
